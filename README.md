@@ -28,4 +28,4 @@ If the user wants to see contents of a gist he can click on a gist to see all th
 #### Notes
 
 A .env file with an environment variable named REACT_APP_GITGISTKEY  
-declared was used in order to increase the number of calls that can be made per hour on Githb's API  
+declared was used in order to increase the number of calls that can be made per hour on Github's API  
