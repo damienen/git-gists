@@ -23,7 +23,9 @@ class GistView extends React.Component {
                         <div>{this.props.gist.created_at}</div>
                     </div>
                     <div className="content"
-                         style={{display: this.props.expanded === true ? 'block' : 'none'}}>{this.props.gist.url}</div>
+                         style={{display: this.props.expanded === true ? 'block' : 'none'}}>
+                        {this.state.gist != null ? Object.values(this.state.gist.files).map(this.renderFiles) : 'Loading'}
+                    </div>
                 </span>
 
             )
@@ -35,7 +37,24 @@ class GistView extends React.Component {
     }
 
     handleCollapse = (event) => {
-        this.props.changeGistVisibility(this.props.i)
+        if (this.state.gist == null || this.state.gist.id!==this.props.gist.id) {
+            axios.get(this.props.gist.url).then(res => {
+                this.setState({gist: res.data})
+                this.props.changeGistVisibility(this.props.i)
+            })
+        } else {
+            this.props.changeGistVisibility(this.props.i)
+        }
+    }
+
+    renderFiles = (file, index) => {
+        const parser = new DOMParser();
+        return <span key={index}>
+            <h3 key={index}>{file.filename}
+                <span key={index} className="badge">{file.language}</span>
+            </h3>
+            <span className="fileContent">{file.content}</span>
+            </span>
     }
 }
 

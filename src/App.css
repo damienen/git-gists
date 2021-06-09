@@ -51,3 +51,6 @@
     background-color: #3f3f3f;
 }
 
+.fileContent{
+    white-space: pre-line;
+}
