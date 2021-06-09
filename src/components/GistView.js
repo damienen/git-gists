@@ -14,22 +14,28 @@ class GistView extends React.Component {
         if (this.state.loading === true) {
             return ('Loading')
         } else {
-            let files = null;
-            files = Object.values(this.props.gist.files)
+            let files = Object.values(this.props.gist.files)
             return (
-                <div className="collapsible">
-                    <div className="collapsibleRow">
+                <span className="gistContainer">
+                    <div className="collapsible" onClick={this.handleCollapse}>
                         <div>{this.props.gist.id}</div>
                         <div>{files.map(this.renderBadges)}</div>
                         <div>{this.props.gist.created_at}</div>
                     </div>
-                </div>
+                    <div className="content"
+                         style={{display: this.props.expanded === true ? 'block' : 'none'}}>{this.props.gist.url}</div>
+                </span>
+
             )
         }
     }
 
     renderBadges = (file, index) => {
         return <span key={index} className="badge">{file.language}</span>
+    }
+
+    handleCollapse = (event) => {
+        this.props.changeGistVisibility(this.props.i)
     }
 }
 

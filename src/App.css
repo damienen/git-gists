@@ -10,8 +10,9 @@
 
 .collapsible {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
+    align-self: center;
     background-color: #212121;
     color: white;
     cursor: pointer;
@@ -23,15 +24,21 @@
     border-radius: 15px;
     margin:5px;
 }
-
-.collapsibleRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #212121;
+.content {
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    align-self: center;
+    width: 60%;
     border-radius: 15px;
 }
 
+.gistContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+}
 .badge {
     background-color: #e1e1e1;
     color: black;
@@ -39,3 +46,8 @@
     border-radius: 10px;
     margin: 2px;
 }
+
+.active, .collapsible:hover {
+    background-color: #3f3f3f;
+}
+

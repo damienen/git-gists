@@ -24,17 +24,11 @@ class SearchForm extends React.Component {
         event.preventDefault();
     }
 
-    /*async componentDidMount() {
-        await axios.get('https://api.github.com/gists')
-            .then(res => {
-                this.setState({gists: res.data})
-            })
-    }*/
-
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="username form">
-                <input type='text' value={this.state.username} onChange={this.handleChange} className="username input" placeholder="Insert username here..."/>
+                <input type='text' value={this.state.username} onChange={this.handleChange} className="username input"
+                       placeholder="Insert username here..."/>
                 <input type='submit' value='Submit' className="username submit"/>
             </form>
         )
