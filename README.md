@@ -17,7 +17,7 @@ If the user wants to see contents of a gist he can click on a gist to see all th
 
 ![Screenshot of the app](./public/screenshot.jpg?raw=true "Generic screenshot")
 
-###Possible improvements
+### Possible improvements
 
 1. Adding colorful badges/tags
 2. Adding better delimitation between file contents
