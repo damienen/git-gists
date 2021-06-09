@@ -18,8 +18,11 @@ class SearchForm extends React.Component {
     handleSubmit = (event) => {
         axios.get(`https://api.github.com/users/${this.state.username}/gists`)
             .then(res => {
-                let gists = res.data
-                this.props.gistSetter(gists)
+                if(res.status===200){
+                    let gists = res.data
+                    this.props.gistSetter(gists)
+                }
+
             })
         event.preventDefault();
     }

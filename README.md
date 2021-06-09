@@ -16,3 +16,11 @@ If the user wants to see more gists, he can click on "Load more" to do so
 If the user wants to see contents of a gist he can click on a gist to see all the files in that gist and their content
 
 ![Screenshot of the app](./public/screenshot.jpg?raw=true "Generic screenshot")
+
+###Possible improvements
+
+1. Adding colorful badges/tags
+2. Adding better delimitation between file contents
+3. Formatting the text in accordance to the language used
+4. A more aesthetically pleasing interface
+5. Creating a 'home page' so that the user can see some gists before entering a username

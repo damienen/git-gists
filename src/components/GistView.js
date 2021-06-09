@@ -63,7 +63,7 @@ class GistView extends React.Component {
     }
 
     renderForks = (fork, index) => {
-        return <p>
+        return <p key={index}>
             {fork.user.login}
             <img className="avatar" src={fork.user.avatar_url} alt="avatar of the user"/>
         </p>
