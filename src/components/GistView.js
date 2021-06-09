@@ -25,6 +25,12 @@ class GistView extends React.Component {
                     <div className="content"
                          style={{display: this.props.expanded === true ? 'block' : 'none'}}>
                         {this.state.gist != null ? Object.values(this.state.gist.files).map(this.renderFiles) : 'Loading'}
+                        <br/>
+                        <br/>
+                        Forks:
+                        <div className="forksContent">
+                            {this.state.gist != null ? this.state.gist.forks.slice(0, 3).map(this.renderForks) : 'Loading'}
+                        </div>
                     </div>
                 </span>
 
@@ -37,7 +43,7 @@ class GistView extends React.Component {
     }
 
     handleCollapse = (event) => {
-        if (this.state.gist == null || this.state.gist.id!==this.props.gist.id) {
+        if (this.state.gist == null || this.state.gist.id !== this.props.gist.id) {
             axios.get(this.props.gist.url).then(res => {
                 this.setState({gist: res.data})
                 this.props.changeGistVisibility(this.props.i)
@@ -48,13 +54,19 @@ class GistView extends React.Component {
     }
 
     renderFiles = (file, index) => {
-        const parser = new DOMParser();
         return <span key={index}>
             <h3 key={index}>{file.filename}
                 <span key={index} className="badge">{file.language}</span>
             </h3>
             <span className="fileContent">{file.content}</span>
             </span>
+    }
+
+    renderForks = (fork, index) => {
+        return <p>
+            {fork.user.login}
+            <img className="avatar" src={fork.user.avatar_url} alt="avatar of the user"/>
+        </p>
     }
 }
 

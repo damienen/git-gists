@@ -4,8 +4,6 @@ import SearchForm from "./components/SearchForm";
 import GistView from "./components/GistView";
 import axios from "axios";
 
-require('dotenv').config()
-
 class App extends React.Component {
     constructor(props) {
         super(props);
